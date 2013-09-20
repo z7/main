@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+  <title>Перетаскиваемые окна</title>
+  <style type='text/css'>
+  
+  body { margin:0px; padding:5px; font-family: verdana, sans-serif; font-size:12px; }
+  h1 { text-align:center; margin-top:10px; }
+  .div_okno { position:absolute;  }
+  .div_zagol_okno { cursor:move;  
+    background: url("./images/fon_left_zagol.gif") no-repeat;
+    font-weight:bold; color:#8CF4EF;   }
+  .div_zagol_okno div { padding-left:10px; padding-right:10px; 
+    background: url("./images/fon_right_zagol.gif") right top no-repeat; }
+  .div_zagol_okno div div { padding:3px; background:#7c9992 url("./images/fon_zagol.gif"); white-space:nowrap; }
+  
+  .content_okno {  padding:5px; background:#C0C0C0; }
+  
+  #div_okno1 { top:80px; left:400px; width:200px; }
+  #div_okno2 { top:220px; left:500px; width:300px; }
+  
+  .block_p { padding:5px 0px 5px 20px; border-left:solid 3px #35a; }
+  
+  pre { font-family: verdana, sans-serif; font-size:12px; color:#123; }
+  
+  </style>
+</head>
+<body>
+<h1>Перетаскиваемые элементы на JavaScript</h1>
+<p>Скрипт скачан с сайта <a href='http://www.linedmk.com'>www.linedmk.com</a></p>
+<p>Использовать данный скрипт нужно следующим образом:
+<ol> 
+<li>Создаем окна на странице, они должны быть абсолютно позиционированные, самый внешний элемент div окна и заголовок окна должны иметь свой идентификатор;
+<li>Вставляем скрипт на страницу
+<p>
+&lt;script type='text/javascript' src='elementmove.js'&gt;&lt;/script&gt;
+</p>
+<li>Для каждого окна создаем свой объект, вызывая move_div()
+<p>
+obj_move1 = new move_div("идентификатор_окна","идентификатор_заголовка");
+</p>
+</ol>
+</p>
+
+
+<!-- пример -->
+<p>
+Например
+</p>
+<div class='block_p'>
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;Перетаскиваемые окна&lt;/title&gt;
+  &lt;style type='text/css'&gt;
+  
+  body { margin:0px; padding:0px; font-family: verdana, sans-serif; font-size:12px; }
+  h1 { text-align:center; margin-top:10px; }
+  .div_okno { position:absolute;  }
+  .div_zagol_okno { cursor:move;  
+    background: url("./images/fon_left_zagol.gif") no-repeat;
+    font-weight:bold; color:#8CF4EF;   }
+  .div_zagol_okno div { padding-left:10px; padding-right:10px; 
+    background: url("./images/fon_right_zagol.gif") right top no-repeat; }
+  .div_zagol_okno div div { padding:3px; background:#7c9992 url("./images/fon_zagol.gif"); white-space:nowrap; }
+  
+  .content_okno {  padding:5px; background:#C0C0C0; }
+  
+  #div_okno1 { top:80px; left:10px; width:200px; }
+  #div_okno2 { top:120px; left:300px; width:300px; }
+  
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Перетаскиваемые элементы на JavaScript&lt;/h1&gt;
+&lt;div id="div_okno1" class="div_okno"&gt;
+&lt;div id="zagol_okno1" class="div_zagol_okno"&gt;&lt;div&gt;&lt;div&gt;
+Заголовок окна
+&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class="content_okno"&gt;&lt;div&gt;
+Вы можете перетащить это окошко!
+&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="div_okno2" class="div_okno"&gt;
+&lt;div id="zagol_okno2" class="div_zagol_okno"&gt;&lt;div&gt;&lt;div&gt;
+Окно, которое можно перетащить
+&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class="content_okno"&gt;&lt;div&gt;
+Наведите указатель мыши на заголовок окна, нажмите на левую клавишу 
+мыши, и, не отпуская, перетащите окно в другое место.
+&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script type='text/javascript' src='elementmove.js'&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+
+obj_move1 = new move_div("div_okno1","zagol_okno1");
+
+obj_move2 = new move_div("div_okno2","zagol_okno2");
+  
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+</div>
+<!-- пример -->
+
+<div id="div_okno1" class="div_okno">
+<div id="zagol_okno1" class="div_zagol_okno"><div><div>
+Заголовок окна
+</div></div></div>
+<div class="content_okno"><div>
+Вы можете перетащить это окошко!
+</div></div>
+</div>
+
+<div id="div_okno2" class="div_okno">
+<div id="zagol_okno2" class="div_zagol_okno"><div><div>
+Окно, которое можно перетащить
+</div></div></div>
+<div class="content_okno"><div>
+Наведите указатель мыши на заголовок окна, нажмите на левую клавишу 
+мыши, и, не отпуская, перетащите окно в другое место.
+</div></div>
+</div>
+
+<script type='text/javascript' src='elementmove.js'></script>
+<script type='text/javascript'>
+
+obj_move1 = new move_div("div_okno1","zagol_okno1");
+
+obj_move2 = new move_div("div_okno2","zagol_okno2");
+  
+</script>
+
+<p>Скрипт скачан с сайта <a href='http://www.linedmk.com'>www.linedmk.com</a></p>
+
+</body>
+</html>
